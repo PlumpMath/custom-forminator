@@ -8,6 +8,7 @@ import com.google.gwt.user.client.ui.HTMLPanel;
 import com.vaadin.polymer.elemental.Event;
 import com.vaadin.polymer.elemental.EventListener;
 import com.vaadin.polymer.iron.element.IronCollapseElement;
+import com.vaadin.polymer.paper.element.PaperButtonElement;
 import com.vaadin.polymer.paper.element.PaperItemElement;
 
 public class Main extends Composite {
@@ -19,7 +20,8 @@ public class Main extends Composite {
   PaperItemElement menu1, menu2, menu3, menu4;
   @UiField
   IronCollapseElement collapse1, collapse2, collapse3, collapse4;
-  
+  @UiField
+  PaperButtonElement navText, navIcon, navImage;
 
   public Main() {
     initWidget(ourUiBinder.createAndBindUi(this));
@@ -54,6 +56,14 @@ public class Main extends Composite {
         collapse4.toggle();
       }
     });
+    
+    // navText.addEventListener("change", new EventListener() {
+    // @Override
+    // public void handleEvent(Event name) {
+    // controlsText.getElement().getStyle();
+    // }
+    // });
+
 
   } // end Main()
 
@@ -63,4 +73,5 @@ public class Main extends Composite {
     collapse3.toggle();
     collapse4.toggle();
   }
+  
 } // end class Main

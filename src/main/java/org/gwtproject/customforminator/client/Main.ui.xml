@@ -2,62 +2,76 @@
 	xmlns:g='urn:import:com.google.gwt.user.client.ui' xmlns:p='urn:import:com.vaadin.polymer.paper.widget'>
 
 	<g:HTMLPanel addStyleNames="header-panel-sample">
-		<style is="custom-style">
+	<style is="custom-style">
 
-			<!-- Outer panel shape -->
-			.paper-header-panel {
-			margin: 0px 12px;
-			}
+		<!-- Outer panel shape -->
+		
+		body {
+		font-size: 12px;
+		}
+		
+		.paper-header-panel {
+		margin: 0px 12px;
+		}
+		
+		.toolbar {
+		background: #4285f4;
+		}
+		
+		.header {
+		color: #ffffff;
+		font-size: 1.5em;
+		margin-left: 10px;
+		}
+		
+		paper-drawer-panel .sidebar {
+		background-color: #596068;
+		}
 
-			.paper-header {
-			height: 30px;
-			font-size: 14px;
-			line-height: 30px;
-			padding: 0 10px;
-			color: white;
-			transition: height 0.2s;
-			}
-			
-			paper-item {
-				background: black;
-				cursor: pointer;
-				padding: 0px 15px;
-				min-height: 30px;
-				color: white;
-			}
+		paper-item {
+		background: black;
+		cursor: pointer;
+		padding: 0px 15px;
+		min-height: 30px;
+		color: #ffffff;
+		}
 
-			<!-- Inner content of panel -->
-			.content {
-			height: 2000px;
-			}
+		.collapse-content {
+		padding: 10px;
+		}
+		
+		<!-- Buttons -->
+		paper-button.nav {
+			font-size: .9em;
+			border: 1px #ffffff solid;
+			border-radius: 18px;
+			padding: 0px 8px;
+			margin: 5px;
+		}
 
-			.blue .paper-header {
-			background-color: var(--paper-light-blue-500);
-			}
+		paper-button:hover.nav {
+		background: #62AAF3;
+		}
 
-			.toolbar {
-			background: #4285f4;
-			}
-			.header {
-			color: #ffffff;
-			font-size: 150%;
-			margin-left: 10px;
-			}
-			.content {
-			padding: 15px;
-			}
+		paper-button[toggles].nav {
+		color: #ffffff;
+		transition: background-color 0.3s
+		}
 
-		</style>
+		paper-button[toggles][active].nav {
+		background: #62AAF3;
+		}
+	</style>
 		<paper-drawer-panel class="flex" right-drawer="">
 			<div main="">
 				<paper-header-panel mode="seamed">
 					<paper-toolbar class="toolbar">
 						<span class="header">Custom Forminator</span>
 					</paper-toolbar>
-					<div ui:field="content" class="content vertical center-justified layout" />
+					<div ui:field="content" class="content vertical center-justified layout" ></div>
 				</paper-header-panel>
 			</div>
-			<div drawer="">
+			<div drawer="" class="sidebar">
 				<button>custom themes</button>
 				<paper-header-panel mode="seamed">
 					<paper-item ui:field="menu1">
@@ -66,7 +80,19 @@
 					</paper-item>
 					<iron-collapse ui:field="collapse1">
 						<div class="collapse-content">
-							Stuff insiiiiiiide
+							<paper-button noink="true" toggles="true" class="nav" ui:field="navText">TEXT</paper-button>
+							<paper-button noink="true" toggles="true" class="nav" ui:field="navIcon">ICON</paper-button>
+							<paper-button noink="true" toggles="true" class="nav" ui:field="navImage">IMAGE</paper-button>
+							<div ui:field="controlsText">
+								<div>
+									<label>Online</label>
+									<input is="iron-input" bind-value=""></input>
+								</div>
+								<div>
+									<label>Offline</label>
+									<input is="iron-input" bind-value=""></input>
+								</div>
+							</div>
 						</div>
 					</iron-collapse>
 					
