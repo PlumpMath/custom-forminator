@@ -1,0 +1,88 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui' xmlns:p='urn:import:com.vaadin.polymer.paper.widget'>
+
+	<g:HTMLPanel addStyleNames="header-panel-sample">
+		<style is="custom-style">
+
+			<!-- Outer panel shape -->
+			.paper-header-panel {
+			margin: 0px 12px;
+			}
+
+			.paper-header {
+			height: 30px;
+			font-size: 14px;
+			line-height: 30px;
+			padding: 0 10px;
+			color: white;
+			transition: height 0.2s;
+			}
+			
+			paper-item {
+				background: black;
+				cursor: pointer;
+				padding: 0px 15px;
+				min-height: 30px;
+				color: white;
+			}
+
+			<!-- Inner content of panel -->
+			.content {
+			height: 2000px;
+			}
+
+			.blue .paper-header {
+			background-color: var(--paper-light-blue-500);
+			}
+
+			.toolbar {
+			background: #4285f4;
+			}
+			.header {
+			color: #ffffff;
+			font-size: 150%;
+			margin-left: 10px;
+			}
+			.content {
+			padding: 15px;
+			}
+
+		</style>
+		<paper-drawer-panel class="flex" right-drawer="">
+			<div main="">
+				<paper-header-panel mode="seamed">
+					<paper-toolbar class="toolbar">
+						<span class="header">Custom Forminator</span>
+					</paper-toolbar>
+					<div ui:field="content" class="content vertical center-justified layout" />
+				</paper-header-panel>
+			</div>
+			<div drawer="">
+				<button>custom themes</button>
+				<paper-header-panel mode="seamed">
+					<paper-item ui:field="menu">
+						<span>TYPE</span>
+						<iron-icon icon="expand-more"></iron-icon>
+					</paper-item>
+					<iron-collapse ui:field="collapse">
+						<div class="collapse-content">
+							Stuff insiiiiiiide
+						</div>
+					</iron-collapse>
+					<paper-item>
+						<span>POSITION</span>
+						<iron-icon icon="expand-more"></iron-icon>
+					</paper-item>
+					<paper-item>
+						<span>TOP OFFSET</span>
+						<iron-icon icon="expand-more"></iron-icon>
+					</paper-item>
+					<paper-item>
+						<span>COLOR</span>
+						<iron-icon icon="expand-more"></iron-icon>
+					</paper-item>
+				</paper-header-panel>
+			</div>
+		</paper-drawer-panel>
+		</g:HTMLPanel>
+	</ui:UiBinder>

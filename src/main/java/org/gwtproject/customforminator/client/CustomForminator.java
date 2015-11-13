@@ -1,15 +1,40 @@
 package org.gwtproject.customforminator.client;
 
+import java.util.Arrays;
+
+// GWT:
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootPanel;
-import com.vaadin.polymer.paper.widget.PaperButton;
+// Vaadin polymer elements:
+import com.vaadin.polymer.Polymer;
+import com.vaadin.polymer.elemental.Function;
+import com.vaadin.polymer.iron.element.IronCollapseElement;
+import com.vaadin.polymer.iron.element.IronIconElement;
+import com.vaadin.polymer.paper.element.PaperDrawerPanelElement;
+import com.vaadin.polymer.paper.element.PaperHeaderPanelElement;
+import com.vaadin.polymer.paper.element.PaperIconItemElement;
+import com.vaadin.polymer.paper.element.PaperItemElement;
+import com.vaadin.polymer.paper.element.PaperRippleElement;
+
 
 public class CustomForminator implements EntryPoint {
+
   @Override
   public void onModuleLoad() {
-    // Use Widget API to Create a <paper-button>
-    PaperButton button = new PaperButton("Press me!");
-    button.setRaised(true);
-    RootPanel.get().add(button);
+    // We have to load icon sets before run application
+    Polymer
+        .importHref(Arrays
+            .asList("iron-icons/iron-icons.html", PaperIconItemElement.SRC, IronIconElement.SRC, IronCollapseElement.SRC, PaperDrawerPanelElement.SRC, PaperHeaderPanelElement.SRC, PaperItemElement.SRC, PaperRippleElement.SRC), new Function() {
+          @Override
+          public Object call(Object arg) {
+            // The app is executed when all imports succeed.
+            startApplication();
+            return null;
+          }
+        });
+  }
+
+  private void startApplication() {
+    RootPanel.get().add(new Main());
   }
 }
