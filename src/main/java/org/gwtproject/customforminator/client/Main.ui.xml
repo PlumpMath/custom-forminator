@@ -60,27 +60,45 @@
 			<div drawer="">
 				<button>custom themes</button>
 				<paper-header-panel mode="seamed">
-					<paper-item ui:field="menu">
+					<paper-item ui:field="menu1">
 						<span>TYPE</span>
 						<iron-icon icon="expand-more"></iron-icon>
 					</paper-item>
-					<iron-collapse ui:field="collapse">
+					<iron-collapse ui:field="collapse1">
 						<div class="collapse-content">
 							Stuff insiiiiiiide
 						</div>
 					</iron-collapse>
-					<paper-item>
+					
+					<paper-item ui:field="menu2">
 						<span>POSITION</span>
 						<iron-icon icon="expand-more"></iron-icon>
 					</paper-item>
-					<paper-item>
+					<iron-collapse ui:field="collapse2">
+						<div class="collapse-content">
+							Stuff insiiiiiiide
+						</div>
+					</iron-collapse>
+					
+					<paper-item ui:field="menu3">
 						<span>TOP OFFSET</span>
 						<iron-icon icon="expand-more"></iron-icon>
 					</paper-item>
-					<paper-item>
+					<iron-collapse ui:field="collapse3">
+						<div class="collapse-content">
+							Stuff insiiiiiiide
+						</div>
+					</iron-collapse>
+					
+					<paper-item ui:field="menu4">
 						<span>COLOR</span>
 						<iron-icon icon="expand-more"></iron-icon>
 					</paper-item>
+					<iron-collapse ui:field="collapse4">
+						<div class="collapse-content">
+							Stuff insiiiiiiide
+						</div>
+					</iron-collapse>
 				</paper-header-panel>
 			</div>
 		</paper-drawer-panel>

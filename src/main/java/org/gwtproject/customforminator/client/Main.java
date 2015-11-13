@@ -15,20 +15,52 @@ public class Main extends Composite {
 
   private static MainUiBinder ourUiBinder = GWT.create(MainUiBinder.class);
   
-  @UiField PaperItemElement menu1;
-  @UiField IronCollapseElement collapse1;
+  @UiField
+  PaperItemElement menu1, menu2, menu3, menu4;
+  @UiField
+  IronCollapseElement collapse1, collapse2, collapse3, collapse4;
   
 
   public Main() {
     initWidget(ourUiBinder.createAndBindUi(this));
-    
+
+    // Open all menus
+    toggleMenus();
+
     menu1.addEventListener("click", new EventListener() {
       @Override
       public void handleEvent(Event event) {
-        GWT.log("clicked menu1", null);
         collapse1.toggle();
       }
     });
     
+    menu2.addEventListener("click", new EventListener() {
+      @Override
+      public void handleEvent(Event event) {
+        collapse2.toggle();
+      }
+    });
+
+    menu3.addEventListener("click", new EventListener() {
+      @Override
+      public void handleEvent(Event event) {
+        collapse3.toggle();
+      }
+    });
+
+    menu4.addEventListener("click", new EventListener() {
+      @Override
+      public void handleEvent(Event event) {
+        collapse4.toggle();
+      }
+    });
+
   } // end Main()
+
+  public void toggleMenus() {
+    collapse1.toggle();
+    collapse2.toggle();
+    collapse3.toggle();
+    collapse4.toggle();
+  }
 } // end class Main
