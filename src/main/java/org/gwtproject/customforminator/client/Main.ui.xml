@@ -139,7 +139,14 @@
 					</paper-item>
 					<iron-collapse ui:field="collapse2">
 						<div class="collapse-content">
-							Stuff insiiiiiiide
+							<div>
+								<label>Web</label>
+								<input ui:field="webPosition" is="iron-input" bind-value="Left"></input>
+							</div>
+							<div>
+								<label>Mobile</label>
+								<input ui:field="mobilePosition" is="iron-input" bind-value="Left"></input>
+							</div>
 						</div>
 					</iron-collapse>
 					
