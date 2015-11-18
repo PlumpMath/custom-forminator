@@ -7,7 +7,9 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.vaadin.polymer.elemental.Event;
 import com.vaadin.polymer.elemental.EventListener;
+import com.vaadin.polymer.elemental.HTMLElement;
 import com.vaadin.polymer.iron.element.IronCollapseElement;
+import com.vaadin.polymer.iron.element.IronInputElement;
 import com.vaadin.polymer.paper.element.PaperButtonElement;
 import com.vaadin.polymer.paper.element.PaperItemElement;
 
@@ -21,7 +23,11 @@ public class Main extends Composite {
   @UiField
   IronCollapseElement collapse1, collapse2, collapse3, collapse4;
   @UiField
-  PaperButtonElement navText, navIcon, navImage;
+  PaperButtonElement text, icon, image;
+  @UiField
+  IronInputElement onlineInput, offlineInput;
+  @UiField
+  HTMLElement buttonText, mobileButtonText;
 
   public Main() {
     initWidget(ourUiBinder.createAndBindUi(this));
@@ -57,13 +63,31 @@ public class Main extends Composite {
       }
     });
     
-    // navText.addEventListener("change", new EventListener() {
+    // BUTTON TEXT
+    onlineInput.addEventListener("keyup", new EventListener() {
+      @Override
+      public void handleEvent(Event event) {
+        buttonText.setInnerHTML(onlineInput.getBindValue());
+        mobileButtonText.setInnerHTML(onlineInput.getBindValue());
+      }
+    });
+
+    // // Offline button text - for now we have no setting to show this
+    // offlineInput.addEventListener("keyup", new EventListener() {
     // @Override
-    // public void handleEvent(Event name) {
-    // controlsText.getElement().getStyle();
+    // public void handleEvent(Event event) {
+    // buttonText.setInnerHTML(offlineInput.getBindValue());
+    // mobileButtonText.setInnerHTML(offlineInput.getBindValue());
     // }
     // });
 
+    // text.addEventListener("click", new EventListener() {
+    // @Override
+    // public void handleEvent(Event event) {
+    //
+    // text.setActive(true);
+    // }
+    // });
 
   } // end Main()
 

@@ -16,6 +16,7 @@ import com.vaadin.polymer.paper.element.PaperDrawerPanelElement;
 import com.vaadin.polymer.paper.element.PaperHeaderPanelElement;
 import com.vaadin.polymer.paper.element.PaperIconItemElement;
 import com.vaadin.polymer.paper.element.PaperItemElement;
+import com.vaadin.polymer.paper.element.PaperMaterialElement;
 import com.vaadin.polymer.paper.element.PaperRippleElement;
 
 public class CustomForminator implements EntryPoint {
@@ -25,7 +26,7 @@ public class CustomForminator implements EntryPoint {
     // We have to load icon sets before run application
     Polymer
         .importHref(Arrays
-            .asList("iron-icons/iron-icons.html", PaperIconItemElement.SRC, IronIconElement.SRC, IronCollapseElement.SRC, IronInputElement.SRC, PaperDrawerPanelElement.SRC, PaperHeaderPanelElement.SRC, PaperItemElement.SRC, PaperRippleElement.SRC, PaperButtonElement.SRC), new Function() {
+            .asList("iron-icons/iron-icons.html", PaperIconItemElement.SRC, IronIconElement.SRC, IronCollapseElement.SRC, IronInputElement.SRC, PaperDrawerPanelElement.SRC, PaperHeaderPanelElement.SRC, PaperItemElement.SRC, PaperRippleElement.SRC, PaperButtonElement.SRC, PaperMaterialElement.SRC), new Function() {
           @Override
           public Object call(Object arg) {
             // The app is executed when all imports succeed.

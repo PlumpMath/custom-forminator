@@ -3,13 +3,12 @@
 
 	<g:HTMLPanel addStyleNames="header-panel-sample">
 	<style is="custom-style">
-
-		<!-- Outer panel shape -->
 		
 		body {
 		font-size: 12px;
 		}
 		
+		<!-- Main -->
 		.paper-header-panel {
 		margin: 0px 12px;
 		}
@@ -23,6 +22,29 @@
 		font-size: 1.5em;
 		margin-left: 10px;
 		}
+		
+		<!-- Preview Areas -->
+		
+		#preview-area {
+      @apply(--center-justified);
+      margin: 30px;
+		}
+		
+		#browser-preview {
+      min-width: 500px;
+      <!-- max-width: 500px; -->
+      min-height: 600px;
+      display: inline-block;
+      margin-right: 30px;
+		}
+		
+		#mobile-preview {
+      min-width: 300px;
+      <!-- max-width: 300px; -->
+      min-height: 600px;
+      display: inline-block;
+		}
+		<!-- Sidebar -->
 		
 		paper-drawer-panel .sidebar {
 		background-color: #596068;
@@ -40,7 +62,7 @@
 		padding: 10px;
 		}
 		
-		<!-- Buttons -->
+		<!-- Nav buttons inside the tools -->
 		paper-button.nav {
 			font-size: .9em;
 			border: 1px #ffffff solid;
@@ -61,6 +83,7 @@
 		paper-button[toggles][active].nav {
 		background: #62AAF3;
 		}
+
 	</style>
 		<paper-drawer-panel class="flex" right-drawer="">
 			<div main="">
@@ -68,7 +91,16 @@
 					<paper-toolbar class="toolbar">
 						<span class="header">Custom Forminator</span>
 					</paper-toolbar>
-					<div ui:field="content" class="content vertical center-justified layout" ></div>
+					<div ui:field="content" class="content vertical center-justified layout">
+						<div id="preview-area">
+							<paper-material id="browser-preview" elevation="1">
+								<div ui:field="buttonText" is="iron-input">CHAT</div>
+							</paper-material>
+							<paper-material id="mobile-preview" elevation="1">
+								<div ui:field="mobileButtonText" is="iron-input">CHAT</div>
+							</paper-material>
+						</div>
+					</div> <!-- end content -->
 				</paper-header-panel>
 			</div>
 			<div drawer="" class="sidebar">
@@ -80,18 +112,23 @@
 					</paper-item>
 					<iron-collapse ui:field="collapse1">
 						<div class="collapse-content">
-							<paper-button noink="true" toggles="true" class="nav" ui:field="navText">TEXT</paper-button>
-							<paper-button noink="true" toggles="true" class="nav" ui:field="navIcon">ICON</paper-button>
-							<paper-button noink="true" toggles="true" class="nav" ui:field="navImage">IMAGE</paper-button>
-							<div ui:field="controlsText">
+							<paper-button noink="true" toggles="true" class="nav" ui:field="text">TEXT</paper-button>
+							<paper-button noink="true" toggles="true" class="nav" ui:field="icon">ICON</paper-button>
+							<paper-button noink="true" toggles="true" class="nav" ui:field="image">IMAGE</paper-button>
+							<div ui:field="textTools">
 								<div>
 									<label>Online</label>
-									<input is="iron-input" bind-value=""></input>
+									<input ui:field="onlineInput" is="iron-input" bind-value="CHAT"></input>
 								</div>
 								<div>
 									<label>Offline</label>
-									<input is="iron-input" bind-value=""></input>
+									<input ui:field="offlineInput" is="iron-input" bind-value="HELP"></input>
 								</div>
+							</div>
+							<div ui:field="iconTools">
+							</div>
+							<div ui:field="imageTools">
+								<div>Image buttons do not use colors options</div>
 							</div>
 						</div>
 					</iron-collapse>
